@@ -29,14 +29,29 @@ function time () {
     timeremain--;
     $("#countdown").text("Time Remaining: " + timeremain + " sec");
     if (timeremain === 0) {
-        timeremain = 0;
+        final ();
     }
 }
 
+function final () {
+    stoptimer()
+    $("#countdown").empty();
+    $("#question").empty();
+    correct = 0;
+    wrong = 0;
+    unanswered = 0;
+    $("#bottom").append("Correct: " + correct + "<br>");
+    $("#bottom").append("Wrong: " + wrong + "<br>");
+    $("#bottom").append("Unanswered: " + unanswered + "<br>");
+}
+
+function stoptimer() {
+    clearInterval(intervalId);
+}
 
 $(document).ready(function(){
     $("#startbtn").on("click", start);
-    
+
 })
 
 
