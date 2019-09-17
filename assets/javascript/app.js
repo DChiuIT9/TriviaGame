@@ -2,11 +2,23 @@
 var timeremain = 30;
 var intervalId;
 
+var correct = 0;
+var wrong = 0;
+var unanswered = 0;
+
+var questionList = $("#question");
+
+
 function start () {
-    $("#start_sect").empty();
+    $("#bottom").empty();
     // var timeDiv = $("<div>");
     intervalId = setInterval(time, 1000);
-    
+    var questionTag = $("<p>");
+    for (var i = 0; i < qna.length; i++) {
+        $("#question").append(qna[i].question + "<br><br>");
+        $("#question").append(qna[i].ansList + "<br><br><hr>");
+        console.log(qna[i].question);
+    }
 }
 
 function time () {
@@ -28,24 +40,24 @@ $(document).ready(function(){
 
 var qna = [
     {
-    "question" : "What is the first stage of combustion?",
-    "corr_ans" : "Intake",
-    "wrong_ans" : ["Compression", "Spark", "Exhaust"]
+        question : "What is the first stage of combustion?",
+        ansList : ["Intake", "Compression", "Spark", "Exhaust"],
+        answer : 0
     },
     {
-        "question" : "The connecting rod connects the piston to the crankshaft. True or False?",
-        "corr_ans" : true,
-        "wrong_ans" : false
+        question : "The connecting rod connects the piston to the crankshaft. True or False?",
+        ansList : [true, false],
+        answer : 0
     },
     {
-        "question" : "What is the purpose of a clutch?",
-        "corr_ans" : "To connect and disconnect powerflow between the engine and transmission.",
-        "wrong_ans" : ["To assist and smooth out shifting.", "To provide a safe transition between shifts."]
+        question : "What is the purpose of a clutch?",
+        ansList : ["To assist and smooth out shifting.", "To connect and disconnect powerflow between the engine and transmission.", "To provide a safe transition between shifts."],
+        answer : 1
     },
     {
-        "question" : "What animal is on the Porsche logo?",
-        "corr_ans" : "Horse",
-        "wrong_ans" : ["Lian", "Bull", "Bird"]
+        question : "What animal is on the Porsche logo?",
+        ansList : ["Lian", "Bull", "Bird", "Horse"],
+        answer : 3
     }
 ]
 
