@@ -1,0 +1,1 @@
+var timeremain = 30;

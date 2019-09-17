@@ -1,0 +1,15 @@
+#container {
+    margin: 0 auto;
+}
+
+#header {
+    text-align: center;
+}
+
+#startbtn {
+    width: 150px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
