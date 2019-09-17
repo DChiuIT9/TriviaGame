@@ -16,8 +16,12 @@ function start () {
     var questionTag = $("<p>");
     for (var i = 0; i < qna.length; i++) {
         $("#question").append(qna[i].question + "<br><br>");
-        $("#question").append(qna[i].ansList + "<br><br><hr>");
+        for (var a = 0; a < qna[i].ansList.length; a++) {
+            $("#question").append(qna[i].ansList[a] + "<br>");
+        }
+        $("#question").append("<hr>")
         console.log(qna[i].question);
+        console.log(qna[i].ansList);
     }
 }
 
@@ -25,7 +29,7 @@ function time () {
     timeremain--;
     $("#countdown").text("Time Remaining: " + timeremain + " sec");
     if (timeremain === 0) {
-        alert("Time's Up!");
+        timeremain = 0;
     }
 }
 
