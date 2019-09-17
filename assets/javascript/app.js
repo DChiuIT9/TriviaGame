@@ -6,23 +6,24 @@ var correct = 0;
 var wrong = 0;
 var unanswered = 0;
 
-var questionList = $("#question");
+var questionSect = $("#question");
 
 
 function start () {
-    $("#bottom").empty();
+    $("#startbtn").remove();
     // var timeDiv = $("<div>");
     intervalId = setInterval(time, 1000);
-    var questionTag = $("<p>");
     for (var i = 0; i < qna.length; i++) {
         $("#question").append(qna[i].question + "<br><br>");
         for (var a = 0; a < qna[i].ansList.length; a++) {
-            $("#question").append(qna[i].ansList[a] + "<br>");
+            // $("#question").append(qna[i].ansList[a] + "<br>");
+            $("#question").append("<input type='radio' name='answer" + i + "' value='" + qna[i].ansList[a] + "''>" + qna[i].ansList[a]);
         }
         $("#question").append("<hr>")
         console.log(qna[i].question);
         console.log(qna[i].ansList);
     }
+    $("#question").append("<button id='submitbtn'>Submit</button>");
 }
 
 function time () {
@@ -35,8 +36,8 @@ function time () {
 
 function final () {
     stoptimer()
-    $("#countdown").empty();
-    $("#question").empty();
+    $("#countdown").remove();
+    $("#question").remove();
     correct = 0;
     wrong = 0;
     unanswered = 0;
